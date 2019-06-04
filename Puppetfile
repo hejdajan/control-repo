@@ -7,6 +7,7 @@ mod 'puppetlabs-haproxy',              '3.0.1'
 #mod 'puppetlabs/concat',      '4.2.1'
 mod 'puppetlabs-cd4pe',                '1.3.0'
 # Requirements for cd4pe
+mod 'puppetlabs-postgresql',           '6.0.0'
 mod 'puppetlabs-concat',               '4.2.1'
 mod 'puppetlabs-hocon',                '1.0.1'
 mod 'puppetlabs-puppet_authorization', '0.5.0'
