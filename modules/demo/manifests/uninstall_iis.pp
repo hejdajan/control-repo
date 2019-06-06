@@ -13,10 +13,9 @@ class demo::uninstall_iis (
 
 ) {
 
-  if defined(Iis_application["${iis_site_name}\\${iis_webapp_name}"]) {
-    iis_application { "${iis_site_name}\\${iis_webapp_name}":
-      ensure => 'absent',
-    }
+
+  iis_application { "${iis_site_name}\\${iis_webapp_name}":
+    ensure => 'absent',
   }
 
   iis_site { $iis_site_name:
