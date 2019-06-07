@@ -38,10 +38,10 @@ class demo::uninstall_iis (
     timeout => 10,
   }
 
-  file { 'C:\\inetpub':
-    ensure  => directory,
-    recurse => true,
-    purge   => true,
-    force   => true,
-  }
+  #file { 'C:\\inetpub':
+    #ensure  => directory,
+    #recurse => true,
+    #purge   => true,
+    #force   => true,
+  #}
 }
