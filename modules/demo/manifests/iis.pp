@@ -17,7 +17,6 @@ class demo::iis (
   String $message                  = "Webinar by WM Promus",
 ) {
 
-  require demo::iis_prereqs
   include chocolatey
 
   package { 'powershell':
