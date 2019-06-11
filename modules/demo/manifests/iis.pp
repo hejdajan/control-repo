@@ -1,19 +1,12 @@
-####
-# Class:       intapp open webapp openweb
-# Description:
-# Customer:    Freshfields Bruckhaus Deringer
-# Author:      WM Promus
-# Date:        April 2018
-###
 
 class demo::iis (
-  String $app_pool_name            = 'TestAppPool',
+  String $app_pool_name            = "TestAppPool",
   String $service_account_password = lookup('demo::iis::service_account_password'),
   String $service_account_username = lookup('demo::iis::service_account_username'),
-  String $iis_site_name            = 'TestIisSite',
-  String $iis_webapp_name          = 'TestWebSite',
-  String $path                     = 'C:\\inetpub\\wwwroot\\Test',
-  String $logpath                  = 'C:\\inetpub\\logs\\Test',
+  String $iis_site_name            = "TestIisSite",
+  String $iis_webapp_name          = "TestWebSite",
+  String $path                     = "C:\\inetpub\\wwwroot\\Test",
+  String $logpath                  = "C:\\inetpub\\logs\\Test",
   String $message                  = "Webinar by WM Promus",
 ) {
 
@@ -276,38 +269,36 @@ class demo::iis (
     ensure  => directory,
   }
 
-  #if !defined(Iis_site[$iis_site_name]) {
-    iis_site { $iis_site_name:
-      ensure               => 'present',
-      applicationpool      => $app_pool_name,
-      authenticationinfo   => {
-        'basic'                       => false,
-        'anonymous'                   => true,
-        'windows'                     => true,
-        'iisClientCertificateMapping' => false,
-        'digest'                      => false,
-        'clientCertificateMapping'    => false
-      },
-      bindings             => {
-        'bindinginformation' => '*:81:',
-        'protocol'           => 'http',
-      },
-      enabledprotocols     => 'https',
-      limits               => {
-        'maxconnections'    => 4294967295,
-        'connectiontimeout' => 120,
-        'maxbandwidth'      => 4294967295
-      },
-      logflags             => ['ClientIP', 'Date', 'HttpStatus', 'HttpSubStatus', 'Method', 'Referer', 'ServerIP', 'ServerPort', 'Time', 'TimeTaken', 'UriQuery', 'UriStem', 'UserAgent', 'UserName', 'Win32Status'],
-      logformat            => 'W3C',
-      loglocaltimerollover => 'false',
-      logpath              => $logpath,
-      logperiod            => 'Daily',
-      physicalpath         => $path,
-      preloadenabled       => 'false',
-      require              => Iis_application_pool[$app_pool_nameClass],
-    }
-  #}
+  iis_site { $iis_site_name:
+    ensure               => 'present',
+    applicationpool      => $app_pool_name,
+    authenticationinfo   => {
+      'basic'                       => false,
+      'anonymous'                   => true,
+      'windows'                     => true,
+      'iisClientCertificateMapping' => false,
+      'digest'                      => false,
+      'clientCertificateMapping'    => false
+    },
+    bindings             => {
+      'bindinginformation' => '*:81:',
+      'protocol'           => 'http',
+    },
+    enabledprotocols     => 'https',
+    limits               => {
+      'maxconnections'    => 4294967295,
+      'connectiontimeout' => 120,
+      'maxbandwidth'      => 4294967295
+    },
+    logflags             => ['ClientIP', 'Date', 'HttpStatus', 'HttpSubStatus', 'Method', 'Referer', 'ServerIP', 'ServerPort', 'Time', 'TimeTaken', 'UriQuery', 'UriStem', 'UserAgent', 'UserName', 'Win32Status'],
+    logformat            => 'W3C',
+    loglocaltimerollover => 'false',
+    logpath              => $logpath,
+    logperiod            => 'Daily',
+    physicalpath         => $path,
+    preloadenabled       => 'false',
+    require              => Iis_application_pool[$app_pool_nameClass],
+  }
 
   exec { "Start iis_site ${iis_site_name}":
     command  => "Start-Website ${iis_site_name}",
