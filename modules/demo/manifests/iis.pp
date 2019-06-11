@@ -259,7 +259,6 @@ class demo::iis (
     startup_time_limit                 => '00:01:30',
     state                              => 'started',
     user_name                          => $service_account_username,
-    require                            => Class['demo::iis_prereqs'],
   }
   ############################################################################
   # Create IIS sites                                                         #
