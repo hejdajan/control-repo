@@ -5,16 +5,17 @@ forge 'https://forge.puppet.com'
 mod 'puppetlabs-ntp',                  '7.4.0'
 mod 'puppetlabs-haproxy',              '3.0.1'
 #mod 'puppetlabs/concat',      '4.2.1'
-mod 'puppetlabs-cd4pe',                '1.3.0'
+#cd4pe
+#mod 'puppetlabs-cd4pe', :latest
 # Requirements for cd4pe
-mod 'puppetlabs-postgresql',           '6.0.0'
-mod 'puppetlabs-concat',
-mod 'puppetlabs-hocon',
-mod 'puppetlabs-puppet_authorization',
-mod 'puppetlabs-stdlib',
-mod 'puppetlabs-docker',
-mod 'puppetlabs-apt',
-mod 'puppetlabs-translate',
+#mod 'puppetlabs-concat', '4.2.1'
+#mod 'puppetlabs-hocon', '1.0.1'
+#mod 'puppetlabs-puppet_authorization', '0.5.0'
+#mod 'puppetlabs-stdlib', '4.25.1'
+#mod 'puppetlabs-docker', '3.3.0'
+#mod 'puppetlabs-apt', '6.2.1'
+#mod 'puppetlabs-translate', '1.1.0'
+#/dc4pe
 mod 'puppetlabs-sqlserver',            '2.5.0'
 mod 'puppetlabs-chocolatey',           '3.3.0'
 mod 'puppetlabs-dsc',                  '1.9.2'
