@@ -25,6 +25,7 @@ mod 'puppetlabs-dsc',                  '1.9.2'
 mod 'puppetlabs-iis',                  '4.5.1'
 mod 'puppetlabs-powershell',           '2.3.0'
 mod 'puppetlabs-registry',             '2.1.0'
+mod 'puppetlabs-reboot',               '2.1.2'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
