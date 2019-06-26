@@ -5,8 +5,6 @@ Param(
   $apname
   )
 
-Import-Module WebAdministration
-
 Set-ExecutionPolicy Bypass -Scope Process
 
 Enable-WindowsOptionalFeature -Online -FeatureName Web-Server
@@ -20,6 +18,8 @@ Enable-WindowsOptionalFeature -Online -FeatureName Web-Mgmt-Console
 Enable-WindowsOptionalFeature -Online -FeatureName NET-HTTP-Activation
 Enable-WindowsOptionalFeature -Online -FeatureName AS-Web-Support
 Enable-WindowsOptionalFeature -Online -FeatureName AS-HTTP-Activation
+
+Import-Module WebAdministration
 
 New-Item -Path "IIS:\AppPools" -Name $apname -Type AppPool
 
