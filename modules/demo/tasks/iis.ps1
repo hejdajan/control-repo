@@ -1,3 +1,10 @@
+[CmdletBinding()]
+Param(
+  [Parameter(Mandatory = $True)]
+ [String]
+  $apname
+  )
+
 Import-Module WebAdministration
 
 New-Item -Path "IIS:\AppPools" -Name $apname -Type AppPool
