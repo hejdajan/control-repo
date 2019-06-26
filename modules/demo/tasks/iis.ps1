@@ -11,12 +11,12 @@ Set-ItemProperty -Path "IIS:\AppPools\PS app pool" -name "managedRuntimeVersion"
 # If your ASP.NET app must run as a 32-bit process even on 64-bit machines
 # set this to $true. This is usually only important if your app depends
 # on some unmanaged (non-.NET) DLL's.
-Set-ItemProperty -Path "IIS:\AppPools\PS app pool" -name "enable32BitAppOnWin64" -value $false
+Set-ItemProperty -Path "IIS:\AppPools\"$name -name "enable32BitAppOnWin64" -value $false
 
 # Starts the application pool automatically when a request is made. If you
 # set this to false, you have to manually start the application pool or
 # you will get 503 errors.
-Set-ItemProperty -Path "IIS:\AppPools\PS app pool" -name "autoStart" -value $true
+Set-ItemProperty -Path "IIS:\AppPools\"$name -name "autoStart" -value $true
 
 # What account does the application pool run as?
 # "ApplicationPoolIdentity" = best
@@ -24,7 +24,7 @@ Set-ItemProperty -Path "IIS:\AppPools\PS app pool" -name "autoStart" -value $tru
 # "NetworkService" = not so bad
 # "SpecificUser" = useful if the user needs special rights. See other examples
 # below for how to do this.
-Set-ItemProperty -Path "IIS:\AppPools\PS app pool" -name "processModel" -value @{identitytype="ApplicationPoolIdentity"}
+Set-ItemProperty -Path "IIS:\AppPools\"$name -name "processModel" -value @{identitytype="ApplicationPoolIdentity"}
 
 # Older applications may require "Classic" mode, but most modern ASP.NET
 # apps use the integrated pipeline.
@@ -51,7 +51,7 @@ Set-ItemProperty -Path "IIS:\AppPools\PS app pool" -name "processModel" -value @
 #
 # If this DLL doesn't exist, you'll need to install the IIS Management
 # Console role service.
-Set-ItemProperty -Path "IIS:\AppPools\PS app pool" -name "managedPipelineMode" -value 0
+Set-ItemProperty -Path "IIS:\AppPools\"$name -name "managedPipelineMode" -value 0
 
 # This setting was added in IIS 8. It's different to autoStart (which means
 # "start the app pool when a request is made") in that it lets you keep
@@ -64,5 +64,5 @@ Set-ItemProperty -Path "IIS:\AppPools\PS app pool" -name "managedPipelineMode" -
 # "OnDemand" = IIS starts it when needed. If there are no requests, it may
 # never be started.
 if ([Environment]::OSVersion.Version -ge (new-object 'Version' 6,2)) {
-    Set-ItemProperty -Path "IIS:\AppPools\PS app pool" -name "startMode" -value "OnDemand"
+    Set-ItemProperty -Path "IIS:\AppPools\"$name -name "startMode" -value "OnDemand"
 }
