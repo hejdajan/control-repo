@@ -7,6 +7,20 @@ Param(
 
 Import-Module WebAdministration
 
+Set-ExecutionPolicy Bypass -Scope Process
+
+Enable-WindowsOptionalFeature -Online -FeatureName Web-Server
+Enable-WindowsOptionalFeature -Online -FeatureName Web-Scripting-Tools
+Enable-WindowsOptionalFeature -Online -FeatureName IIS7 - Mgmt Service
+Enable-WindowsOptionalFeature -Online -FeatureName Web-Asp-Net45
+Enable-WindowsOptionalFeature -Online -FeatureName Web-ASP
+Enable-WindowsOptionalFeature -Online -FeatureName Web-Asp-Net
+Enable-WindowsOptionalFeature -Online -FeatureName Web-Windows-Auth
+Enable-WindowsOptionalFeature -Online -FeatureName Web-Mgmt-Console
+Enable-WindowsOptionalFeature -Online -FeatureName NET-HTTP-Activation
+Enable-WindowsOptionalFeature -Online -FeatureName AS-Web-Support
+Enable-WindowsOptionalFeature -Online -FeatureName AS-HTTP-Activation
+
 New-Item -Path "IIS:\AppPools" -Name $apname -Type AppPool
 
 # What version of the .NET runtime to use. Valid options are "v2.0" and
