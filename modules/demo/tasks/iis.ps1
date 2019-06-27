@@ -43,7 +43,7 @@ Start-Website -Name "$sitename"
 
 New-Item -Path "C:\inetpub\wwwroot\$sitename" -Name $appname -ItemType "directory"
 
-New-Item -Type Application -Path "IIS:\Sites\$sitename\$appname" -physicalPath "C:\inetpub\wwwroot\$sitename\$appname"
+New-Item -Type Application -Path "C:\inetpub\wwwroot\$sitename\$appname" -physicalPath "C:\inetpub\wwwroot\$sitename\$appname"
 
 New-Item -Path "C:\inetpub\wwwroot\$sitename\$appname" -Name "index.html" -ItemType "file" -Value "<HTML>
    <HEAD>
