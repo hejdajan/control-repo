@@ -3,8 +3,20 @@ Param(
   [Parameter(Mandatory = $True)]
  [String]
   $apppoolname
+)
+Param(
+  [Parameter(Mandatory = $True)]
+ [String]
   $sitename
-  $appname
+)
+Param(
+  [Parameter(Mandatory = $True)]
+ [String]
+   $appname
+)
+Param(
+  [Parameter(Mandatory = $True)]
+ [String]
   $message
   )
 
