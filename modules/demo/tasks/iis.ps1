@@ -5,19 +5,19 @@ Param(
   $apname
   )
 
+
 Set-ExecutionPolicy Bypass -Scope Process
 
-Enable-WindowsOptionalFeature -Online -FeatureName Web-Server
-Enable-WindowsOptionalFeature -Online -FeatureName Web-Scripting-Tools
-Enable-WindowsOptionalFeature -Online -FeatureName IIS7 - Mgmt Service
-Enable-WindowsOptionalFeature -Online -FeatureName Web-Asp-Net45
-Enable-WindowsOptionalFeature -Online -FeatureName Web-ASP
-Enable-WindowsOptionalFeature -Online -FeatureName Web-Asp-Net
-Enable-WindowsOptionalFeature -Online -FeatureName Web-Windows-Auth
-Enable-WindowsOptionalFeature -Online -FeatureName Web-Mgmt-Console
-Enable-WindowsOptionalFeature -Online -FeatureName NET-HTTP-Activation
-Enable-WindowsOptionalFeature -Online -FeatureName AS-Web-Support
-Enable-WindowsOptionalFeature -Online -FeatureName AS-HTTP-Activation
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServer -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ManagementScriptingTools -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ManagementService -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45 -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASP -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication -All
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ManagementConsole -All
+Enable-WindowsOptionalFeature -Online -FeatureName Application-Server-WebServer-Support -All
+Enable-WindowsOptionalFeature -Online -FeatureName Application-Server-HTTP-Activation -All
 
 Import-Module WebAdministration
 
