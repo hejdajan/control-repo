@@ -3,11 +3,8 @@ Param(
   [Parameter(Mandatory = $True)]
  [String]
   $apppoolname
- [String]
   $sitename
- [String]
   $appname
- [String]
   $message
   )
 
