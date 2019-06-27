@@ -1,25 +1,11 @@
 [CmdletBinding()]
-Param(
-  [Parameter(Mandatory = $True)]
- [String]
-  $apppoolname
-)
-Param(
-  [Parameter(Mandatory = $True)]
- [String]
-  $sitename
-)
-Param(
-  [Parameter(Mandatory = $True)]
- [String]
-   $appname
-)
-Param(
-  [Parameter(Mandatory = $True)]
- [String]
-  $message
+Param( $apppoolname, $sitename, $appname, $message
   )
-
+  #Param(
+  #  [Parameter(Mandatory = $True)]
+  #[String]
+  #  $apppoolname
+  #)
 
 Set-ExecutionPolicy Bypass -Scope Process
 
