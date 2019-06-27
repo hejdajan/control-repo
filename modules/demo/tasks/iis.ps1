@@ -32,16 +32,20 @@ if ([Environment]::OSVersion.Version -ge (new-object 'Version' 6,2)) {
     Set-ItemProperty -Path "IIS:\AppPools\$apppoolname" -name "startMode" -value "OnDemand"
 }
 
+New-Item -Path "C:\inetpub\wwwroot" -Name $sitename -ItemType "directory"
+
 New-Item -Path "IIS:\Sites" -Name $sitename -Type Site -Bindings @{protocol="http";bindingInformation="*:81:"}
 Set-ItemProperty -Path "IIS:\Sites\$sitename" -name "applicationpool" -value $apppoolname
-Set-ItemProperty -Path "IIS:\Sites\$sitename" -name "physicalPath" -value "C:\Sites\$sitename"
+Set-ItemProperty -Path "IIS:\Sites\$sitename" -name "physicalPath" -value "C:\inetpub\wwwroot\$sitename"
 Set-ItemProperty -Path "IIS:\Sites\$sitename" -Name "id" -Value 4
 #New-ItemProperty -Path "IIS:\Sites\$sitename" -Name "bindings" -Value (@{protocol="http";bindingInformation="*:8022:"}, @{protocol="http";bindingInformation="*:8023:"})
 Start-Website -Name "$sitename"
 
-New-Item -Type Application -Path "IIS:\Sites\$sitename\$appname" -physicalPath "C:\Sites\$sitename\$appname"
+New-Item -Path "C:\inetpub\wwwroot\$sitename" -Name $appname -ItemType "directory"
 
-New-Item -Path "C:\Sites\$sitename\$appname" -Name "index.html" -ItemType "file" -Value "<HTML>
+New-Item -Type Application -Path "IIS:\Sites\$sitename\$appname" -physicalPath "C:\inetpub\wwwroot\$sitename\$appname"
+
+New-Item -Path "C:\inetpub\wwwroot\$sitename\$appname" -Name "index.html" -ItemType "file" -Value "<HTML>
    <HEAD>
       <TITLE>
          Hello World!
