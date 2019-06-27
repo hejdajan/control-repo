@@ -54,7 +54,7 @@ New-Item -Path "C:\inetpub\wwwroot\$sitename\$appname" -Name "index.html" -ItemT
    </HEAD>
 <BODY>
    <H1>Hell World!</H1>
-   <P>This website and iis was deployed by Puppet and it was triggered from SMAX'.</P>
+   <P>This website was deployed by Puppet and triggered from SMAX'.</P>
    <P>Custom message: $message</P>
 </BODY>
 </HTML>"
