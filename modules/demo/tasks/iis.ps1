@@ -1,5 +1,5 @@
 [CmdletBinding()]
-Param( $apppoolname, $sitename, $appname, $message
+Param( $apppoolname, $sitename, $appname, $message, $binding
   )
   #Param(
   #  [Parameter(Mandatory = $True)]
@@ -34,7 +34,7 @@ if ([Environment]::OSVersion.Version -ge (new-object 'Version' 6,2)) {
 
 New-Item -Path "C:\inetpub\wwwroot" -Name $sitename -ItemType "directory"
 
-New-Item -Path "IIS:\Sites" -Name $sitename -Type Site -Bindings @{protocol="http";bindingInformation="*:81:"}
+New-Item -Path "IIS:\Sites" -Name $sitename -Type Site -Bindings @{protocol="http";bindingInformation="*:$binding:"}
 Set-ItemProperty -Path "IIS:\Sites\$sitename" -name "applicationpool" -value $apppoolname
 Set-ItemProperty -Path "IIS:\Sites\$sitename" -name "physicalPath" -value "C:\inetpub\wwwroot\$sitename"
 Set-ItemProperty -Path "IIS:\Sites\$sitename" -Name "id" -Value 4
