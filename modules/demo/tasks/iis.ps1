@@ -43,9 +43,8 @@ Start-Website -Name "$sitename"
 
 New-Item -Path "C:\inetpub\wwwroot\$sitename" -Name $appname -ItemType "directory"
 
-New-Item -Path "IIS:\Sites\$sitename" -Name $appname -Type Application
+New-Item -Path "IIS:\Sites\$sitename" -Name $appname -Type Application -Applicationpool $apppoolname
 Set-ItemProperty -Path "IIS:\Sites\$sitename\$appname" -name "physicalPath" -value "C:\inetpub\wwwroot\$sitename\$appname"
-Set-ItemProperty -Path "IIS:\Sites\$sitename\$appname" -name "applicationpool" -value $apppoolname
 
 New-Item -Path "C:\inetpub\wwwroot\$sitename\$appname" -Name "index.html" -ItemType "file" -Value "<HTML>
    <HEAD>
