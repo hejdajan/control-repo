@@ -22,8 +22,6 @@ Enable-WindowsOptionalFeature -Online -FeatureName Application-Server-HTTP-Activ
 
 Import-Module WebAdministration
 
-New-Item -Path "C:\test" -Name "test.txt" -ItemType "file" -Value $binding
-
 New-Item -Path "IIS:\AppPools" -Name $apppoolname -Type AppPool
 Set-ItemProperty -Path "IIS:\AppPools\$apppoolname" -name "managedRuntimeVersion" -value "v4.0"
 Set-ItemProperty -Path "IIS:\AppPools\$apppoolname" -name "enable32BitAppOnWin64" -value $false
