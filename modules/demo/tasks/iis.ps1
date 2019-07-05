@@ -22,6 +22,8 @@ Enable-WindowsOptionalFeature -Online -FeatureName Application-Server-HTTP-Activ
 
 Import-Module WebAdministration
 
+New-Item -Path "C:\test" -Name "test.txt" -ItemType "file" -Value $binding
+
 New-Item -Path "IIS:\AppPools" -Name $apppoolname -Type AppPool
 Set-ItemProperty -Path "IIS:\AppPools\$apppoolname" -name "managedRuntimeVersion" -value "v4.0"
 Set-ItemProperty -Path "IIS:\AppPools\$apppoolname" -name "enable32BitAppOnWin64" -value $false
@@ -34,7 +36,7 @@ if ([Environment]::OSVersion.Version -ge (new-object 'Version' 6,2)) {
 
 New-Item -Path "C:\inetpub\wwwroot" -Name $sitename -ItemType "directory"
 
-New-Item -Path "IIS:\Sites" -Name $sitename -Type Site -Bindings @{protocol="http";bindingInformation="*:"$binding":"}
+New-Item -Path "IIS:\Sites" -Name $sitename -Type Site -Bindings @{protocol="http";bindingInformation="*:$binding:"}
 Set-ItemProperty -Path "IIS:\Sites\$sitename" -name "applicationpool" -value $apppoolname
 Set-ItemProperty -Path "IIS:\Sites\$sitename" -name "physicalPath" -value "C:\inetpub\wwwroot\$sitename"
 Set-ItemProperty -Path "IIS:\Sites\$sitename" -Name "id" -Value 4
