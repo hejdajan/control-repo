@@ -1,11 +1,6 @@
 [CmdletBinding()]
 Param( $apppoolname, $sitename, $appname, $message, $binding
   )
-  #Param(
-  #  [Parameter(Mandatory = $True)]
-  #[String]
-  #  $apppoolname
-  #)
 
 Set-ExecutionPolicy Bypass -Scope Process
 
@@ -38,7 +33,6 @@ New-Item -Path "IIS:\Sites" -Name $sitename -Type Site -Bindings @{protocol="htt
 Set-ItemProperty -Path "IIS:\Sites\$sitename" -name "applicationpool" -value $apppoolname
 Set-ItemProperty -Path "IIS:\Sites\$sitename" -name "physicalPath" -value "C:\inetpub\wwwroot\$sitename"
 Set-ItemProperty -Path "IIS:\Sites\$sitename" -Name "id" -Value 4
-#New-ItemProperty -Path "IIS:\Sites\$sitename" -Name "bindings" -Value (@{protocol="http";bindingInformation="*:8022:"}, @{protocol="http";bindingInformation="*:8023:"})
 Start-Website -Name "$sitename"
 
 New-Item -Path "C:\inetpub\wwwroot\$sitename" -Name $appname -ItemType "directory"
