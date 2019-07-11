@@ -8,6 +8,7 @@ class demo::iis (
   String $path                        = "C:\\inetpub\\wwwroot\\Test",
   String $logpath                     = "C:\\inetpub\\logs\\Test",
   String $message                     = "Webinar by WM Promus",
+  String $task,
 ) {
 
   include chocolatey
