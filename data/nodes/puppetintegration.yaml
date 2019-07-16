@@ -1,0 +1,17 @@
+---
+puppet_enterprise::profile::database::shared_buffers: 2048MB
+puppet_enterprise::puppetdb::command_processing_threads: 1
+puppet_enterprise::profile::puppetdb::java_args:
+  Xms: 512m
+  Xmx: 512m
+puppet_enterprise::master::puppetserver::jruby_max_active_instances: 2
+puppet_enterprise::profile::master::java_args:
+  Xms: 1024m
+  Xmx: 1024m
+puppet_enterprise::master::puppetserver::reserved_code_cache: 512m
+puppet_enterprise::profile::console::java_args:
+  Xms: 512m
+  Xmx: 512m
+puppet_enterprise::profile::orchestrator::java_args:
+  Xms: 512m
+  Xmx: 512m
