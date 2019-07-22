@@ -30,7 +30,7 @@ class sqltest (
     source                  => 'E:/',
     features                => ['SQL'],
     security_mode           => 'SQL',
-    sa_pwd                  => $sqpassword,
+    sa_pwd                  => $sqlpassword,
     sql_sysadmin_accounts   => ['administrator'],
     install_switches        => {
       'TCPENABLED'          => 1,
