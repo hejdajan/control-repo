@@ -1,6 +1,6 @@
 
 class sqltest (
-  sensitive $sqlpassword = lookup('sqltest::sqlpassword'),
+  Sensitive $sqlpassword = lookup('sqltest::sqlpassword'),
 ) {
 
   include chocolatey
