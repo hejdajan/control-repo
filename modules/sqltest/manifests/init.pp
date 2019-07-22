@@ -8,16 +8,22 @@ class sqltest (
   package { 'dotnet3.5':
     ensure   => 'present',
     provider => 'chocolatey',
-    notify   => Reboot['dotnet reboot'],
+    notify   => Reboot['dotnet_reboot'],
   }
 
   package { 'dotnet4.5':
     ensure   => 'present',
     provider => 'chocolatey',
-    notify   => Reboot['dotnet reboot'],
+    notify   => Reboot['dotnet_reboot'],
   }
 
-  reboot { 'dotnet reboot':
+  package { 'powershell':
+    ensure   => 'present',
+    provider => 'chocolatey',
+    notify   => Reboot['dotnet_reboot'],
+  }
+
+  reboot { 'dotnet_reboot':
     when => 'pending',
   }
 
