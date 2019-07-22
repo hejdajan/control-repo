@@ -6,31 +6,31 @@ class sqltest (
   include chocolatey
 
   package { 'dotnet3.5':
-    ensure   => 'present',
+    ensure   => present,
     provider => 'chocolatey',
     notify   => Reboot['dotnet_reboot'],
   }
 
   package { 'dotnet4.5':
-    ensure   => 'present',
+    ensure   => present,
     provider => 'chocolatey',
     notify   => Reboot['dotnet_reboot'],
   }
 
   package { 'powershell':
-    ensure   => 'present',
+    ensure   => present,
     provider => 'chocolatey',
     notify   => Reboot['dotnet_reboot'],
   }
 
   package { 'sql2014-powershell':
-    ensure   => 'present',
+    ensure   => present,
     provider => 'chocolatey',
     notify   => Reboot['dotnet_reboot'],
   }
 
   reboot { 'dotnet_reboot':
-    when => 'pending',
+    when => pending,
   }
 
   file { 'C:\\MSSQLSERVER':
