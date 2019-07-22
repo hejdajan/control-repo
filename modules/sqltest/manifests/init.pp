@@ -23,6 +23,12 @@ class sqltest (
     notify   => Reboot['dotnet_reboot'],
   }
 
+  package { 'sql2014-powershell':
+    ensure   => 'present',
+    provider => 'chocolatey',
+    notify   => Reboot['dotnet_reboot'],
+  }
+
   reboot { 'dotnet_reboot':
     when => 'pending',
   }
