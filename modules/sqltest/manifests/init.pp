@@ -6,7 +6,7 @@ class sqltest (
   include chocolatey
 
   package { 'dotnet3.5':
-    ensure => 'present',
+    ensure   => 'present',
     provider => 'chocolatey',
   }
 
@@ -27,6 +27,7 @@ class sqltest (
   }
 
   sqlserver_instance{ 'MSSQLSERVER':
+    ensure                  => 'present',
     source                  => 'E:/',
     features                => ['SQL'],
     security_mode           => 'SQL',
@@ -44,7 +45,7 @@ class sqltest (
   }
 
   package { 'sql-server-management-studio':
-    ensure => 'present',
+    ensure   => 'present',
     provider => 'chocolatey',
   }
 
