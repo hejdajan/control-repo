@@ -18,7 +18,7 @@ class sqltest (
   }
 
   reboot { 'dotnet reboot':
-    refreshonly => 'true',
+    when => 'pending',
   }
 
   file { 'C:\\MSSQLSERVER':
