@@ -8,6 +8,17 @@ class sqltest (
   package { 'dotnet3.5':
     ensure   => 'present',
     provider => 'chocolatey',
+    notify   => Reboot['dotnet reboot'],
+  }
+
+  package { 'dotnet4.5':
+    ensure   => 'present',
+    provider => 'chocolatey',
+    notify   => Reboot['dotnet reboot'],
+  }
+
+  reboot { 'dotnet reboot':
+    refreshonly => 'true',
   }
 
   file { 'C:\\MSSQLSERVER':
