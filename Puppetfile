@@ -28,6 +28,7 @@ mod 'puppetlabs-registry',             '2.1.0'
 mod 'puppetlabs-reboot',               '2.1.2'
 mod 'reidmv-taskplan',                 '0.2.0'
 mod 'example42-psick',                 '0.6.1'
+mod 'puppetlabs-puppet_agent',         '2.2.0'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
