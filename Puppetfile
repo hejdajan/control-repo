@@ -4,7 +4,6 @@ forge 'https://forge.puppet.com'
 # Versions should be updated to be the latest at the time you start
 mod 'puppetlabs-ntp',                  '7.4.0'
 mod 'puppetlabs-haproxy',              '3.0.1'
-mod 'puppetlabs-inifile',              '3.0.0'
 mod 'puppet-hiera',                    '3.4.1'
 #mod 'puppetlabs/concat',      '4.2.1'
 #cd4pe
