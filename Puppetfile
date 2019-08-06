@@ -16,7 +16,6 @@ mod 'puppetlabs-puppet_authorization', '0.5.0'
 mod 'puppetlabs-stdlib', '6.0.0'
 mod 'puppetlabs-docker', '3.3.0'
 mod 'puppetlabs-apt', '6.2.1'
-mod 'puppetlabs-translate', '1.1.0'
 #/dc4pe
 mod 'puppetlabs-postgresql', '6.1.0'
 mod 'puppetlabs-sqlserver',            '2.5.0'
