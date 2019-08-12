@@ -324,7 +324,7 @@ class demo::iis (
   }
 
   exec { "Start iis_site ${iis_site_name}":
-    command  => "Start-Website ${iis_site_name}",
+    command  => "Start-Website '${iis_site_name}'",
     provider => 'powershell',
     onlyif   => "Import-Module WebAdministration;if((Get-ChildItem IIS:\\Sites | where {\$_.Name -eq \'${iis_site_name}\'} | 
     select -ExpandProperty State) -ne \'Started\') {exit 0} else {exit 1}",
