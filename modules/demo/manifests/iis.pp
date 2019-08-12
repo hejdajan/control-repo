@@ -262,7 +262,7 @@ class demo::iis (
   }
 
   exec { "Start application pool ${app_pool_name}":
-    command   => "Start-WebAppPool -Name ${app_pool_name}",
+    command   => "Start-WebAppPool -Name '${app_pool_name}'",
     provider  => 'powershell',
     onlyif    => "Import-Module WebAdministration;if((Get-ChildItem IIS:\\AppPools | where {\$_.Name -eq \'${app_pool_name}\'} | 
     select -ExpandProperty State) -ne \'Started\') {exit 0} else {exit 1}",
