@@ -1,7 +1,7 @@
 
 class demo::iis (
   String $app_pool_name               = 'TestAppPool',
-  Sensitive $service_account_password = lookup('demo::iis::service_account_password'),
+  String $service_account_password    = lookup('demo::iis::service_account_password'),
   String $service_account_username    = lookup('demo::iis::service_account_username'),
   String $iis_site_name               = 'TestIisSite',
   String $iis_webapp_name             = 'TestWebSite',
