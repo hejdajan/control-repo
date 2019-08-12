@@ -250,7 +250,7 @@ class demo::iis (
     ping_response_time                 => '00:01:30',
     pinging_enabled                    => true,
     queue_length                       => '1000',
-    rapid_fail_protection              => true,
+    rapid_fail_protection              => 'true',
     rapid_fail_protection_interval     => '00:05:00',
     rapid_fail_protection_max_crashes  => '5',
     set_profile_environment            => true,
