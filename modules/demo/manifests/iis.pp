@@ -261,7 +261,7 @@ class demo::iis (
     user_name                          => $service_account_username,
   }
 
-  exec { "Start application pool ${app_pool_name}":
+  -> exec { "Start application pool ${app_pool_name}":
     command   => "Start-WebAppPool -Name '${app_pool_name}'",
     provider  => 'powershell',
     onlyif    => "Import-Module WebAdministration;if((Get-ChildItem IIS:\\AppPools | where {\$_.Name -eq \'${app_pool_name}\'} | 
@@ -323,7 +323,7 @@ class demo::iis (
     require              => Iis_application_pool[$app_pool_name],
   }
 
-  exec { "Start iis_site ${iis_site_name}":
+  -> exec { "Start iis_site ${iis_site_name}":
     command  => "Start-Website '${iis_site_name}'",
     provider => 'powershell',
     onlyif   => "Import-Module WebAdministration;if((Get-ChildItem IIS:\\Sites | where {\$_.Name -eq \'${iis_site_name}\'} | 
