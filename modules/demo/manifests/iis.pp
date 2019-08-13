@@ -18,7 +18,7 @@ class demo::iis (
     ensure                             => 'present',
     identity_type                      => 'SpecificUser',
     user_name                          => $service_account_username,
-    password                           => '$service_account_password',
+    password                           => $service_account_password,
     auto_start                         => true,
     cpu_action                         => 'NoAction',
     cpu_reset_interval                 => '00:05:00',
@@ -54,7 +54,6 @@ class demo::iis (
     start_mode                         => 'AlwaysRunning',
     startup_time_limit                 => '00:01:30',
     state                              => 'started',
-    show_diff                          => false,
   }
 
 
