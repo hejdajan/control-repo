@@ -1,7 +1,7 @@
 #
 class demo::iis (
   String $app_pool_name               = 'Application Pool for Webinar',
-  Sensitive $service_account_password = lookup('demo::iis::service_account_password'),
+  Sensitive[String] $service_account_password = lookup('demo::iis::service_account_password'),
   String $service_account_username    = lookup('demo::iis::service_account_username'),
   String $iis_site_name               = 'Test Iis Site',
   String $iis_webapp_name             = 'Test Web Site',
@@ -18,7 +18,7 @@ class demo::iis (
     ensure                             => 'present',
     identity_type                      => 'SpecificUser',
     user_name                          => $service_account_username,
-    password                           => $service_account_password,
+    password                           => '$service_account_password',
     auto_start                         => true,
     cpu_action                         => 'NoAction',
     cpu_reset_interval                 => '00:05:00',
@@ -54,6 +54,7 @@ class demo::iis (
     start_mode                         => 'AlwaysRunning',
     startup_time_limit                 => '00:01:30',
     state                              => 'started',
+    show_diff                          => false,
   }
 
 
@@ -268,7 +269,7 @@ class demo::iis (
 
 
 
-  -> exec { "Start application pool ${app_pool_name}":
+  exec { "Start application pool ${app_pool_name}":
     command   => "Start-WebAppPool -Name '${app_pool_name}'",
     provider  => 'powershell',
     onlyif    => "Import-Module WebAdministration;if((Get-ChildItem IIS:\\AppPools | where {\$_.Name -eq \'${app_pool_name}\'} | 
