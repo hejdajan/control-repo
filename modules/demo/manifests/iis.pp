@@ -1,10 +1,10 @@
-
+#
 class demo::iis (
-  String $app_pool_name               = 'TestAppPool',
+  String $app_pool_name               = 'Application Pool for Webinar',
   Sensitive $service_account_password = lookup('demo::iis::service_account_password'),
   String $service_account_username    = lookup('demo::iis::service_account_username'),
-  String $iis_site_name               = 'TestIisSite',
-  String $iis_webapp_name             = 'TestWebSite',
+  String $iis_site_name               = 'Test Iis Site',
+  String $iis_webapp_name             = 'Test Web Site',
   String $path                        = 'C:\\inetpub\\wwwroot\\Test',
   String $logpath                     = 'C:\\inetpub\\logs\\Test',
   String $message                     = 'Webinar by WM Promus',
