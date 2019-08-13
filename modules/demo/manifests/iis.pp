@@ -16,9 +16,9 @@ class demo::iis (
 
   iis_application_pool { $app_pool_name:
     ensure                             => 'present',
-    identity_type                      => 'NetworkService',
-    #user_name                          => $service_account_username,
-    #password                           => $service_account_password,
+    identity_type                      => 'SpecificUser',
+    user_name                          => $service_account_username,
+    password                           => $service_account_password,
     auto_start                         => true,
     cpu_action                         => 'NoAction',
     cpu_reset_interval                 => '00:05:00',
