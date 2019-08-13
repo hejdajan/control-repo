@@ -58,7 +58,7 @@ class demo::iis (
 
 
   include chocolatey
-  
+
   package { 'powershell':
     ensure   => installed,
     provider => chocolatey,
