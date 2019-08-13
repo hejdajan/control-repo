@@ -10,8 +10,6 @@ class demo::iis (
   String $message                     = 'Webinar by WM Promus',
 ) {
 
-  include chocolatey
-
   ############################################################################
   # Create application pool                                                  #
   ############################################################################
@@ -58,6 +56,9 @@ class demo::iis (
     state                              => 'started',
   }
 
+
+  include chocolatey
+  
   package { 'powershell':
     ensure   => installed,
     provider => chocolatey,
