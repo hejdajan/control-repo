@@ -1,0 +1,17 @@
+{
+  "description": "Execute the replica provision puppet command ",
+  "parameters": {
+    "master_replica": {
+      "type": "String",
+      "description": "The name of the replica to provision"
+    },
+    "token_file": {
+      "type": "Optional[String]",
+      "description": "The name of the token-file for auth"
+    }
+  },
+  "input_method": "environment",
+  "implementations": [
+    {"name": "provision_replica.sh"}
+  ]
+}

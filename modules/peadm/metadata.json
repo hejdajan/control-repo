@@ -1,0 +1,55 @@
+{
+  "name": "puppetlabs-peadm",
+  "version": "0.4.0",
+  "author": "Reid Vandewiele",
+  "summary": "Bolt plans used to deploy an at-scale Puppet Enterprise architecture",
+  "license": "Apache-2.0",
+  "source": "https://github.com/puppetlabs/puppetlabs-peadm",
+  "project_page": "https://github.com/puppetlabs/puppetlabs-peadm",
+  "issues_url": "https://github.com/puppetlabs/puppetlabs-peadm/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.20.0 < 7.0.0"
+    },
+    {
+      "name": "WhatsARanjit/node_manager",
+      "version_requirement": ">= 0.7.3 < 2.0.0"
+    },
+    {
+      "name": "puppetlabs/bolt_shim",
+      "version_requirement": ">= 0.3.0 < 2.0.0"
+    },
+    {
+      "name": "puppetlabs/apply_helpers",
+      "version_requirement": ">= 0.1.0 < 2.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7.2",
+        "7.3",
+        "7.4"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7.2",
+        "7.3",
+        "7.4"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 6.0.2 < 7.0.0"
+    }
+  ],
+  "pdk-version": "1.13.0",
+  "template-url": "https://github.com/puppetlabs/pdk-templates.git#1.13.0",
+  "template-ref": "1.13.0-0-g66e1443"
+}
