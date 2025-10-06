@@ -2,4 +2,7 @@
 
 class role::example {
 
+
+
+
 }
