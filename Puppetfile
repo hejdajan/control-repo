@@ -37,6 +37,6 @@ mod 'puppetlabs-puppet_agent',         '2.2.0'
   #:git    => 'https://github.com/hejdajan/puppet-module-tomcat.git'
 #  :commit => 'de290646f97e04b4b8e42c70f6e01e860c394ce7'
 
-#mod 'java',
-  #:git    => 'https://github.com/hejdajan/puppet-module-java.git'
-#  :branch => 'docs_experiment'
+mod 'java',
+  :git    => 'https://github.com/hejdajan/puppet-module-java.git'
+ :branch => 'docs_experiment'
